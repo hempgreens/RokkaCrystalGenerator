@@ -9,11 +9,11 @@ const $ = id => document.getElementById(id);
 function loadRokkaParameter(){
   const params = new URL(window.location.href).searchParams.get('params');
   if (!params) {
-  return;
+    return;
   }
   const splitted = params.split('_');
   if (splitted.length !== 6) {
-  return;
+    return;
   }
   const [RADIUS, LINE_WIDTH, BG_COLOR, PLATE_STROKE, HEX_STROKE, SNOW_FILL] = splitted;
   $('radiusRange').value = RADIUS;
@@ -150,10 +150,10 @@ function shareButtonCallback(){
   const HEX_STROKE = $('hexStrokeColorPick').value.replace('#', '');
   const SNOW_FILL = $('snowFillColorPick').value.replace('#', '');
   const params = (
-  `${RADIUS}_${LINE_WIDTH}_${BG_COLOR}_${PLATE_STROKE}_${HEX_STROKE}_${SNOW_FILL}`
+    `${RADIUS}_${LINE_WIDTH}_${BG_COLOR}_${PLATE_STROKE}_${HEX_STROKE}_${SNOW_FILL}`
   );
   const currentRokkaUrl = Object.assign(
-  new URL(window.location.href), {search: `${new URLSearchParams({params})}`}
+    new URL(window.location.href), {search: `${new URLSearchParams({params})}`}
   );
   navigator.clipboard.writeText(`${currentRokkaUrl}`);
   alert(`URLをクリップボードへコピーしました。\n${currentRokkaUrl}`);
