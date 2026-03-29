@@ -135,10 +135,10 @@ function defaultButtonCallback(){
 }
 function downloadButtonCallback(){
   const a = Object.assign(
-  document.createElement('a'), {
+    document.createElement('a'), {
       href: $('canvas').toDataURL('image.png', 1.0),
       download: 'RokkaCrystalImage.png'
-  }
+    }
   );
   a.click();
 }
